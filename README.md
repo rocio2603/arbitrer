@@ -4,6 +4,7 @@ request:
 GET arbitrer/arbitrages
 
 response:
+
 {
 "ticker": "BTC/USD",
 "buyMarket": "BINANCE",
