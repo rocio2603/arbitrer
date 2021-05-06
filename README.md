@@ -4,7 +4,8 @@ request:
 GET arbitrer/arbitrages
 
 response:
-
+```
+[
 {
 "ticker": "BTC/USD",
 "buyMarket": "BINANCE",
@@ -48,6 +49,8 @@ response:
 "price": 56767.75,
 "market": "COINBASE"
 }
+]
+```
 
 [
    {"ticker":"BTC/USD", "buyMarket":"BINANCE", "buyPrice":56292.41, "sellMarket":"COINBASE", "sellPrice":56647.53, "percentageSpread":0.6308488124775531},
