@@ -3,9 +3,9 @@ package com.example;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.annotation.Generated;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -24,7 +24,7 @@ public class PriceBittrex {
     @JsonProperty("symbol")
     private String symbol;
     @JsonProperty("lastTradeRate")
-    private String lastTradeRate;
+    private Double lastTradeRate;
     @JsonProperty("bidRate")
     private String bidRate;
     @JsonProperty("askRate")
@@ -46,7 +46,7 @@ public class PriceBittrex {
      * @param bidRate
      * @param askRate
      */
-    public PriceBittrex(String symbol, String lastTradeRate, String bidRate, String askRate) {
+    public PriceBittrex(String symbol, Double lastTradeRate, String bidRate, String askRate) {
         super();
         this.symbol = symbol;
         this.lastTradeRate = lastTradeRate;
@@ -65,12 +65,12 @@ public class PriceBittrex {
     }
 
     @JsonProperty("lastTradeRate")
-    public String getLastTradeRate() {
+    public Double getLastTradeRate() {
         return lastTradeRate;
     }
 
     @JsonProperty("lastTradeRate")
-    public void setLastTradeRate(String lastTradeRate) {
+    public void setLastTradeRate(Double lastTradeRate) {
         this.lastTradeRate = lastTradeRate;
     }
 

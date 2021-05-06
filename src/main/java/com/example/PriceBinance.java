@@ -22,7 +22,7 @@ public class PriceBinance {
     @JsonProperty("symbol")
     private String symbol;
     @JsonProperty("price")
-    private String price;
+    private Double price;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -38,7 +38,7 @@ public class PriceBinance {
      * @param symbol
      * @param price
      */
-    public PriceBinance(String symbol, String price) {
+    public PriceBinance(String symbol, Double price) {
         super();
         this.symbol = symbol;
         this.price = price;
@@ -60,16 +60,16 @@ public class PriceBinance {
     }
 
     @JsonProperty("price")
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
     @JsonProperty("price")
-    public void setPrice(String price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public PriceBinance withPrice(String price) {
+    public PriceBinance withPrice(Double price) {
         this.price = price;
         return this;
     }

@@ -25,7 +25,7 @@ public class Data {
     @JsonProperty("currency")
     private String currency;
     @JsonProperty("amount")
-    private String amount;
+    private Double amount;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -42,7 +42,7 @@ public class Data {
      * @param currency
      * @param base
      */
-    public Data(String base, String currency, String amount) {
+    public Data(String base, String currency, Double amount) {
         super();
         this.base = base;
         this.currency = currency;
@@ -80,16 +80,16 @@ public class Data {
     }
 
     @JsonProperty("amount")
-    public String getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
     @JsonProperty("amount")
-    public void setAmount(String amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
-    public Data withAmount(String amount) {
+    public Data withAmount(Double amount) {
         this.amount = amount;
         return this;
     }

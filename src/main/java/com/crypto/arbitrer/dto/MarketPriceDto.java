@@ -2,14 +2,15 @@ package com.crypto.arbitrer.dto;
 
 public class MarketPriceDto {
 	
-	private float price= 0;
+	private String symbol=null;
+	private Double price= null;
 	private String market=null;
 	
 	
-	public float getPrice() {
+	public Double getPrice() {
 		return price;
 	}
-	public void setPrice(float price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	public String getMarket() {
@@ -17,6 +18,14 @@ public class MarketPriceDto {
 	}
 	public void setMarket(String market) {
 		this.market = market;
+	}
+	
+	public String getSymbol() {
+		return symbol;
+	}
+	
+	public void setSymbol(String symbol) {
+		this.symbol= symbol;
 	}
 	
 	

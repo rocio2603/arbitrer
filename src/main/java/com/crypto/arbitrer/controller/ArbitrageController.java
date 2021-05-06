@@ -6,19 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.crypto.arbitrer.dto.MarketPriceDto;
+import com.crypto.arbitrer.dto.Arbitrage;
 import com.crypto.arbitrer.service.ArbitrerService;
 
 @RestController
-public class PricesController {
+public class ArbitrageController {
 	
-	@Autowired
-	private ArbitrerService arbitrerService;
-	
-	@GetMapping("/marketpricesBTC")
-	public List<MarketPriceDto> getPrices() {
+		@Autowired
+		private ArbitrerService arbitrerService;
 		
-		return arbitrerService.getPrices();	
-	}	
+		@GetMapping("/arbitrages")		
+		public List<Arbitrage> arbitrage() {
+			
+			return arbitrerService.getArbitrages();	
+		}
 	
+
 }
