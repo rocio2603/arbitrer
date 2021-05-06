@@ -1,7 +1,7 @@
-# arbitrer
+## arbitrer
 
 request:
-*GET arbitrer/arbitrages*
+# GET arbitrer/arbitrages
 
 response:
 ```
@@ -32,7 +32,8 @@ response:
    }
 ]
 ```
-request: GET arbitrer/marketpricesBTC
+request:   
+# GET arbitrer/marketpricesBTC
 
 response:
 ```
