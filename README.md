@@ -1,7 +1,7 @@
 # arbitrer
 
 request:
-GET arbitrer/arbitrages
+*GET arbitrer/arbitrages*
 
 response:
 ```
