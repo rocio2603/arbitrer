@@ -23,7 +23,7 @@ response:
 "percentageSpread": 0.5735147178807334
 },
 
-  {
+ {
 "ticker": "BTC/USD",
 "buyMarket": "BINANCE",
 "buyPrice": 56292.41,
@@ -32,7 +32,7 @@ response:
 "percentageSpread": 0.05700715020017731
 }
 ```
-request:GET arbitrer/marketpricesBTC
+request: GET arbitrer/marketpricesBTC
 
 response:
 ```
@@ -40,11 +40,13 @@ response:
 "price": 56417.63,
 "market": "BINANCE"
 },
-  {
+
+{
 "price": 56427.77571345,
 "market": "BITTREX"
 },
-  {
+
+{
 "price": 56767.75,
 "market": "COINBASE"
 }
