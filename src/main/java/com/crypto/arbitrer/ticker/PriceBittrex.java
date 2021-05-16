@@ -1,12 +1,8 @@
 
 package com.crypto.arbitrer.ticker;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.annotation.Generated;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -23,14 +19,15 @@ public class PriceBittrex {
 
     @JsonProperty("symbol")
     private String symbol;
+    
     @JsonProperty("lastTradeRate")
     private Double lastTradeRate;
+    
     @JsonProperty("bidRate")
     private String bidRate;
+    
     @JsonProperty("askRate")
     private String askRate;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
      * No args constructor for use in serialization
@@ -83,7 +80,6 @@ public class PriceBittrex {
     public void setBidRate(String bidRate) {
         this.bidRate = bidRate;
     }
-
 
     @JsonProperty("askRate")
     public String getAskRate() {

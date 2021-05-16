@@ -18,7 +18,6 @@ public class PricesController {
 	
 	@GetMapping("/marketprices")
 	public List<MarketPriceDto> getPrices(@RequestParam String symbol) {
-		
 		return arbitrerService.getPrices(symbol);	
 	}	
 	

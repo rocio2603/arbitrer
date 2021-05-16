@@ -22,10 +22,9 @@ public class ArbitrageController {
 		}
 		
 		@GetMapping(
-				value  ="/arbitrages",
+				value  = "/arbitrages",
 				params = "percentageSpread")		
 		public List<Arbitrage> getPercentageSpread(@RequestParam ("percentageSpread") Double percentageSpread) {
-			
 			return arbitrerService.getPercentageSpread(percentageSpread);	
 		}
 	

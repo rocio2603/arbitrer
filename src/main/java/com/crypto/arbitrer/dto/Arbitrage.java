@@ -16,8 +16,7 @@ public class Arbitrage {
 	Double percentageSpread = null;
 	
 	
-	
-		public String getTicker() {
+	public String getTicker() {
 		return ticker;
 	}
 

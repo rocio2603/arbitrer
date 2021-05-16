@@ -10,17 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class ArbitrerApplication {
 
 	public static void main(String[] args) {
-			
-	
 		SpringApplication.run(ArbitrerApplication.class, args);
-			
 	}
 	
 	@GetMapping("/")
 	public String home() {
-		
-		return "hello";
-		
+		return "hello, I'm alive !!!";
 	}
 	
 

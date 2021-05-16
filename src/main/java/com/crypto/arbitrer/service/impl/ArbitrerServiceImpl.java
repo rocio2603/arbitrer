@@ -28,11 +28,9 @@ public class ArbitrerServiceImpl implements ArbitrerService {
 	@Override
 	public List<MarketPriceDto> getPrices(String symbol) {
 		RestTemplate restTemplate= new RestTemplate();
-		
 		ResponseEntity<PriceBinance> res = null;
 		ResponseEntity<PriceCoinbase> res2 = null;
 		ResponseEntity<PriceBittrex> res3 = null;
-		
 		ArrayList <MarketPriceDto> priceList = new ArrayList <MarketPriceDto> ();
 				
 		res =restTemplate.getForEntity("https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT", PriceBinance.class);
@@ -63,59 +61,42 @@ public class ArbitrerServiceImpl implements ArbitrerService {
 		MarketPriceDto kraken = DtoConverter.toDto(priceKraken.getBody());
 		priceList.add(kraken);
 		
-		
-		priceList.sort(Comparator.comparing(MarketPriceDto::getPrice));
-				
-			
+		priceList.sort(Comparator.comparing(MarketPriceDto::getPrice));	
 		return priceList;		
-	
 	}
-		@Override
-		public List<Arbitrage> getArbitrages() {
-		
-			
-			List <MarketPriceDto> list = this.getPrices(Symbol.BTCUSDT);	
-			List<Arbitrage> arbitrages = new ArrayList<>();
 	
-			for (int i=0; i<list.size(); i++ ) {	
-				
-				for ( int j=i+1; j<list.size(); j++ ) {				
-				
-					Arbitrage arbitrage = new Arbitrage();
-					arbitrage.setTicker(list.get(0).getSymbol());
-				
-					arbitrage.setBuyPrice(list.get(i).getPrice());
-					arbitrage.setBuyMarket(list.get(i).getMarket());
-		
-					arbitrage.setSellPrice(list.get(j).getPrice());
-					arbitrage.setSellMarket(list.get(j).getMarket());
-		
-					arbitrage.setPercentageSpread((((list.get(j).getPrice()-list.get(i).getPrice())*100)/list.get(i).getPrice()));
-			
-					arbitrages.add(arbitrage);
-				}
-			
+	
+	@Override
+	public List<Arbitrage> getArbitrages() {
+		List <MarketPriceDto> list = this.getPrices(Symbol.BTCUSDT);	
+		List<Arbitrage> arbitrages = new ArrayList<>();
+		for (int i=0; i<list.size(); i++ ) {	
+			for ( int j=i+1; j<list.size(); j++ ) {				
+				Arbitrage arbitrage = new Arbitrage();
+				arbitrage.setTicker(list.get(0).getSymbol());
+				arbitrage.setBuyPrice(list.get(i).getPrice());
+				arbitrage.setBuyMarket(list.get(i).getMarket());
+				arbitrage.setSellPrice(list.get(j).getPrice());
+				arbitrage.setSellMarket(list.get(j).getMarket());
+				arbitrage.setPercentageSpread((((list.get(j).getPrice()-list.get(i).getPrice())*100)/list.get(i).getPrice()));
+				arbitrages.add(arbitrage);
 			}
-			arbitrages.sort(Comparator.comparing(Arbitrage::getPercentageSpread).reversed());
-			return  arbitrages;
-		
+		}
+		arbitrages.sort(Comparator.comparing(Arbitrage::getPercentageSpread).reversed());
+		return  arbitrages;
 	}
 		
-		@Override
-		public List<Arbitrage> getPercentageSpread(Double percentageSpread){
-			
-			List<Arbitrage> spreadArbitrages = new ArrayList<>();
-			List<Arbitrage> arbitrages = this.getArbitrages();
-			
-			for (int i=0; i<arbitrages.size();i++){
-				if (arbitrages.get(i).getPercentageSpread()>= percentageSpread){
-					spreadArbitrages.add(arbitrages.get(i));
-				}				
-			}			
-			return spreadArbitrages;
-			
-			
-		}
+	@Override
+	public List<Arbitrage> getPercentageSpread(Double percentageSpread){
+		List<Arbitrage> spreadArbitrages = new ArrayList<>();
+		List<Arbitrage> arbitrages = this.getArbitrages();
+		for (int i=0; i<arbitrages.size();i++){
+			if (arbitrages.get(i).getPercentageSpread()>= percentageSpread){
+				spreadArbitrages.add(arbitrages.get(i));
+			}				
+		}			
+		return spreadArbitrages;
+	}
 		
 		
 		

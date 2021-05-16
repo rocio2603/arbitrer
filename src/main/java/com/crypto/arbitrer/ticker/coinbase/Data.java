@@ -1,12 +1,8 @@
 
 package com.crypto.arbitrer.ticker.coinbase;
 
-import java.util.HashMap;
-import java.util.Map;
 import javax.annotation.Generated;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -22,12 +18,12 @@ public class Data {
 
     @JsonProperty("base")
     private String base;
+    
     @JsonProperty("currency")
     private String currency;
+    
     @JsonProperty("amount")
     private Double amount;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
      * No args constructor for use in serialization
@@ -59,11 +55,6 @@ public class Data {
         this.base = base;
     }
 
-    public Data withBase(String base) {
-        this.base = base;
-        return this;
-    }
-
     @JsonProperty("currency")
     public String getCurrency() {
         return currency;
@@ -74,11 +65,6 @@ public class Data {
         this.currency = currency;
     }
 
-    public Data withCurrency(String currency) {
-        this.currency = currency;
-        return this;
-    }
-
     @JsonProperty("amount")
     public Double getAmount() {
         return amount;
@@ -87,26 +73,6 @@ public class Data {
     @JsonProperty("amount")
     public void setAmount(Double amount) {
         this.amount = amount;
-    }
-
-    public Data withAmount(Double amount) {
-        this.amount = amount;
-        return this;
-    }
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
-
-    public Data withAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-        return this;
     }
 
 }

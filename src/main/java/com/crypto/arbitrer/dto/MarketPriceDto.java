@@ -13,12 +13,15 @@ public class MarketPriceDto {
 	public Double getPrice() {
 		return price;
 	}
+	
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+	
 	public String getMarket() {
 		return market;
 	}
+	
 	public void setMarket(String market) {
 		this.market = market;
 	}
@@ -30,13 +33,13 @@ public class MarketPriceDto {
 	public void setSymbol(String symbol) {
 		this.symbol= symbol;
 	}
+	
 	public Date getDate() {
 		return date;
 	}
+	
 	public void setDate(Date date) {
 		this.date = date;
 	}
 	
-	
-
 }

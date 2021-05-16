@@ -13,24 +13,19 @@ import com.crypto.arbitrer.ticker.poloniex.PricePoloniex;
 public class DtoConverter {
 
 	public static MarketPriceDto toDto(PriceBinance priceBinance) {
-		
 		String name = "BINANCE";
 		Double price= priceBinance.getPrice();
-				
 		MarketPriceDto marketPrice = new MarketPriceDto();
 		marketPrice.setMarket(name);
 		marketPrice.setPrice(price);
 		marketPrice.setSymbol(Symbol.BTCUSDT);
 		marketPrice.setDate(new Date());
-				
 		return marketPrice;
 	}
 	
 	public static MarketPriceDto toDto(PriceBittrex priceBittrex) {
-		
 		String name = "BITTREX";
 		Double price= priceBittrex.getLastTradeRate();
-				
 		MarketPriceDto marketPrice = new MarketPriceDto();
 		marketPrice.setMarket(name);
 		marketPrice.setPrice(price);
@@ -40,10 +35,8 @@ public class DtoConverter {
 	}
 	
 	public static MarketPriceDto toDto(PriceCoinbase priceCoinbase) {
-		
 		String name = "COINBASE";
 		Double price= priceCoinbase.getData().getAmount();
-				
 		MarketPriceDto marketPrice = new MarketPriceDto();
 		marketPrice.setMarket(name);
 		marketPrice.setPrice(price);
@@ -55,13 +48,13 @@ public class DtoConverter {
 	public static MarketPriceDto toDto(List priceBitfinex) {
 		MarketPriceDto marketPrice = new MarketPriceDto();
 		marketPrice.setMarket("BITFINEX");
-        //Double price = Double.valueOf((Integer)((List)priceBitfinex.get(0)).get(7));
-        marketPrice.setPrice(45000d);
+		String price = String.valueOf(((List)priceBitfinex.get(0)).get(7));
+        marketPrice.setPrice(Double.valueOf(price));
         marketPrice.setSymbol(Symbol.BTCUSDT);
         marketPrice.setDate(new Date());
 		return marketPrice;
-		
 	}
+	
 	public static MarketPriceDto toDto(PricePoloniex pricePoloniex) {
 		MarketPriceDto marketPrice = new MarketPriceDto();
 		marketPrice.setMarket("POLONIEX");
@@ -80,7 +73,6 @@ public class DtoConverter {
 		marketPrice.setSymbol(Symbol.BTCUSDT);
 		marketPrice.setDate(new Date());
 		return marketPrice;
-		
 	}
 	
 
