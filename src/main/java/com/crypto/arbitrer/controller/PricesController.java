@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.crypto.arbitrer.dto.MarketPriceDto;
@@ -15,10 +16,10 @@ public class PricesController {
 	@Autowired
 	private ArbitrerService arbitrerService;
 	
-	@GetMapping("/marketpricesBTC")
-	public List<MarketPriceDto> getPrices() {
+	@GetMapping("/marketprices")
+	public List<MarketPriceDto> getPrices(@RequestParam String symbol) {
 		
-		return arbitrerService.getPrices();	
+		return arbitrerService.getPrices(symbol);	
 	}	
 	
 }

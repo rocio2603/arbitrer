@@ -7,8 +7,10 @@ import com.crypto.arbitrer.dto.MarketPriceDto;
 
 public interface ArbitrerService {
 
-	List<MarketPriceDto> getPrices();
+	List<MarketPriceDto> getPrices(String symbol);
 	
-	List<Arbitrage> getArbitrages();		
+	List<Arbitrage> getArbitrages();
+
+	List<Arbitrage> getPercentageSpread(Double percentageSpread);		
 
 }
