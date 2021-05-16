@@ -96,55 +96,8 @@ response:
          "sellMarket": "COINBASE",
          "sellPrice": 44705.15,
          "percentageSpread": 0.41024201246561054
-   },
-     {
-         "ticker": "BTC-USDT",
-         "buyMarket": "KRAKEN",
-         "buyPrice": 44486.3,
-         "sellMarket": "BINANCE",
-         "sellPrice": 44522.5,
-         "percentageSpread": 0.08137336663196779
-   },
-     {
-         "ticker": "BTC-USDT",
-         "buyMarket": "KRAKEN",
-         "buyPrice": 44486.3,
-         "sellMarket": "POLONIEX",
-         "sellPrice": 44514.42892685,
-         "percentageSpread": 0.06323053805328109
-   },
-     {
-         "ticker": "BTC-USDT",
-         "buyMarket": "BITTREX",
-         "buyPrice": 44504.07181473,
-         "sellMarket": "BINANCE",
-         "sellPrice": 44522.5,
-         "percentageSpread": 0.04140786341240165
-   },
-     {
-         "ticker": "BTC-USDT",
-         "buyMarket": "KRAKEN",
-         "buyPrice": 44486.3,
-         "sellMarket": "BITTREX",
-         "sellPrice": 44504.07181473,
-         "percentageSpread": 0.03994896120827434
-   },
-     {
-         "ticker": "BTC-USDT",
-         "buyMarket": "BITTREX",
-         "buyPrice": 44504.07181473,
-         "sellMarket": "POLONIEX",
-         "sellPrice": 44514.42892685,
-         "percentageSpread": 0.023272279810972782
-   },
-     {
-         "ticker": "BTC-USDT",
-         "buyMarket": "POLONIEX",
-         "buyPrice": 44514.42892685,
-         "sellMarket": "BINANCE",
-         "sellPrice": 44522.5,
-         "percentageSpread": 0.01813136401966067
-   }
+   }     
+     
 ]
 ```
 
