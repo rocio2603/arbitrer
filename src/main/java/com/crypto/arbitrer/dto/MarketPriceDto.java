@@ -1,10 +1,13 @@
 package com.crypto.arbitrer.dto;
 
+import java.util.Date;
+
 public class MarketPriceDto {
 	
 	private String symbol=null;
 	private Double price= null;
 	private String market=null;
+	private Date date = null;
 	
 	
 	public Double getPrice() {
@@ -26,6 +29,12 @@ public class MarketPriceDto {
 	
 	public void setSymbol(String symbol) {
 		this.symbol= symbol;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
 	

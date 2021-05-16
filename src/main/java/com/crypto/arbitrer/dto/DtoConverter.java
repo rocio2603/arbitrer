@@ -1,9 +1,14 @@
 package com.crypto.arbitrer.dto;
 
+import java.util.Date;
+import java.util.List;
+
 import com.crypto.arbitrer.constants.Symbol;
-import com.example.PriceBinance;
-import com.example.PriceBittrex;
-import com.example.PriceCoinbase;
+import com.crypto.arbitrer.ticker.PriceBinance;
+import com.crypto.arbitrer.ticker.PriceBittrex;
+import com.crypto.arbitrer.ticker.coinbase.PriceCoinbase;
+import com.crypto.arbitrer.ticker.kraken.PriceKraken;
+import com.crypto.arbitrer.ticker.poloniex.PricePoloniex;
 
 public class DtoConverter {
 
@@ -16,6 +21,7 @@ public class DtoConverter {
 		marketPrice.setMarket(name);
 		marketPrice.setPrice(price);
 		marketPrice.setSymbol(Symbol.BTCUSDT);
+		marketPrice.setDate(new Date());
 				
 		return marketPrice;
 	}
@@ -29,7 +35,7 @@ public class DtoConverter {
 		marketPrice.setMarket(name);
 		marketPrice.setPrice(price);
 		marketPrice.setSymbol(Symbol.BTCUSDT);
-				
+		marketPrice.setDate(new Date());				
 		return marketPrice;
 	}
 	
@@ -42,10 +48,40 @@ public class DtoConverter {
 		marketPrice.setMarket(name);
 		marketPrice.setPrice(price);
 		marketPrice.setSymbol(Symbol.BTCUSDT);
-				
+		marketPrice.setDate(new Date());				
 		return marketPrice;
 	}
 	
+	public static MarketPriceDto toDto(List priceBitfinex) {
+		MarketPriceDto marketPrice = new MarketPriceDto();
+		marketPrice.setMarket("BITFINEX");
+        //Double price = Double.valueOf((Integer)((List)priceBitfinex.get(0)).get(7));
+        marketPrice.setPrice(45000d);
+        marketPrice.setSymbol(Symbol.BTCUSDT);
+        marketPrice.setDate(new Date());
+		return marketPrice;
+		
+	}
+	public static MarketPriceDto toDto(PricePoloniex pricePoloniex) {
+		MarketPriceDto marketPrice = new MarketPriceDto();
+		marketPrice.setMarket("POLONIEX");
+		Double price = Double.valueOf(pricePoloniex.getUsdtBtc().getLast());
+		marketPrice.setPrice(price);
+		marketPrice.setSymbol(Symbol.BTCUSDT);
+		marketPrice.setDate(new Date());
+		return marketPrice;
+	}
+
+	public static MarketPriceDto toDto(PriceKraken priceKraken) {
+		MarketPriceDto marketPrice = new MarketPriceDto();
+		marketPrice.setMarket("KRAKEN");
+		Double price = Double.valueOf(priceKraken.getResult().getXxbtzusd().getC().get(0));
+		marketPrice.setPrice(price);
+		marketPrice.setSymbol(Symbol.BTCUSDT);
+		marketPrice.setDate(new Date());
+		return marketPrice;
+		
+	}
 	
 
 }

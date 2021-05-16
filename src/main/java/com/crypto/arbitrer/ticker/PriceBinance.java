@@ -1,5 +1,5 @@
 
-package com.example;
+package com.crypto.arbitrer.ticker;
 
 import java.util.HashMap;
 import java.util.Map;
