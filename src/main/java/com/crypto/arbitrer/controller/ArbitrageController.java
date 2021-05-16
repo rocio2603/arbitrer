@@ -17,7 +17,6 @@ public class ArbitrageController {
 		
 		@GetMapping("/arbitrages")		
 		public List<Arbitrage> arbitrage() {
-			
 			return arbitrerService.getArbitrages();	
 		}
 	
