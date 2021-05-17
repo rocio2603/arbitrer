@@ -18,8 +18,10 @@ import com.crypto.arbitrer.dto.MarketPriceDto;
 import com.crypto.arbitrer.service.ArbitrerService;
 import com.crypto.arbitrer.ticker.PriceBinance;
 import com.crypto.arbitrer.ticker.PriceBittrex;
+import com.crypto.arbitrer.ticker.bitmex.PriceBitmex;
 import com.crypto.arbitrer.ticker.coinbase.PriceCoinbase;
 import com.crypto.arbitrer.ticker.kraken.PriceKraken;
+import com.crypto.arbitrer.ticker.okex.PriceOkex;
 import com.crypto.arbitrer.ticker.poloniex.PricePoloniex;
 
 @Service("arbitrerService")
@@ -60,6 +62,14 @@ public class ArbitrerServiceImpl implements ArbitrerService {
 		ResponseEntity<PriceKraken> priceKraken = restTemplate.getForEntity("https://api.kraken.com/0/public/Ticker?pair=XBTUSD", PriceKraken.class);
 		MarketPriceDto kraken = DtoConverter.toDto(priceKraken.getBody());
 		priceList.add(kraken);
+		
+		ResponseEntity<PriceOkex> priceOkex = restTemplate.getForEntity("https://www.okex.com/api/v5/market/ticker?instId=BTC-USDT-SWAP", PriceOkex.class);
+		MarketPriceDto okex = DtoConverter.toDto(priceOkex.getBody());
+		priceList.add(okex);
+		
+		ResponseEntity<PriceBitmex[]> priceBitmex = restTemplate.getForEntity("https://www.bitmex.com/api/v1/trade?symbol=xbtusd&count=1&reverse=true", PriceBitmex[].class);
+		MarketPriceDto bitmex = DtoConverter.toDto(priceBitmex.getBody());
+		priceList.add(bitmex);
 		
 		priceList.sort(Comparator.comparing(MarketPriceDto::getPrice));	
 		return priceList;		

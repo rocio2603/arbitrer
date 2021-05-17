@@ -6,8 +6,10 @@ import java.util.List;
 import com.crypto.arbitrer.constants.Symbol;
 import com.crypto.arbitrer.ticker.PriceBinance;
 import com.crypto.arbitrer.ticker.PriceBittrex;
+import com.crypto.arbitrer.ticker.bitmex.PriceBitmex;
 import com.crypto.arbitrer.ticker.coinbase.PriceCoinbase;
 import com.crypto.arbitrer.ticker.kraken.PriceKraken;
+import com.crypto.arbitrer.ticker.okex.PriceOkex;
 import com.crypto.arbitrer.ticker.poloniex.PricePoloniex;
 
 public class DtoConverter {
@@ -70,6 +72,25 @@ public class DtoConverter {
 		marketPrice.setMarket("KRAKEN");
 		Double price = Double.valueOf(priceKraken.getResult().getXxbtzusd().getC().get(0));
 		marketPrice.setPrice(price);
+		marketPrice.setSymbol(Symbol.BTCUSDT);
+		marketPrice.setDate(new Date());
+		return marketPrice;
+	}
+
+	public static MarketPriceDto toDto(PriceOkex priceOkex) {
+		MarketPriceDto marketPrice = new MarketPriceDto();
+		marketPrice.setMarket("OKEX");
+		String price = priceOkex.getData().get(0).getLast();
+		marketPrice.setPrice(Double.valueOf(price));
+		marketPrice.setSymbol(Symbol.BTCUSDT);
+		marketPrice.setDate(new Date());
+		return marketPrice;
+	}
+
+	public static MarketPriceDto toDto(PriceBitmex[] priceBitmex) {
+		MarketPriceDto marketPrice = new MarketPriceDto();
+		marketPrice.setMarket("BITMEX");
+		marketPrice.setPrice(priceBitmex[0].getPrice());
 		marketPrice.setSymbol(Symbol.BTCUSDT);
 		marketPrice.setDate(new Date());
 		return marketPrice;
